@@ -30,7 +30,7 @@ def get_pokemon_info(pokemon_name):
     # TODO: If the GET request failed, print the error reason and return None
 
     pokemon = str(pokemon).strip().lower()
-    print(f"Getting information on {pokemon}...")
+    print(f"Getting information on {pokemon}.")
 
     url = f"https://pokeapi.co/api/v2/pokemon/{pokemon}"
     response = requests.get(url)
