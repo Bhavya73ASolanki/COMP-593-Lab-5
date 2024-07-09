@@ -22,14 +22,18 @@ def main():
         print(paste_url)
 
 def get_pokemon_name():
+
+    if len(sys.argv) < 2:
+        print("Error: No Pokémon name given.")
+        sys.exit(1)
+    return sys.argv[1]
     """Gets the name of the Pokemon specified as a command line parameter.
     Aborts script execution if no command line parameter was provided.
 
     Returns:
         str: Pokemon name
     """
-    # TODO: Function body
-    return
+    
 
 def get_paste_data(pokemon_info):
     """Builds the title and body text for a PasteBin paste that lists a Pokemon's abilities.
@@ -40,9 +44,11 @@ def get_paste_data(pokemon_info):
     Returns:
         (str, str): Title and body text for the PasteBin paste
     """    
-    # TODO: Build the paste title
-    # TODO: Build the paste body text
-    return # (title, body_text)
+    name = pokemon_info['name'].capitalize()
+    abilities = [ability['ability']['name'] for ability in pokemon_info['abilities']]
+    title = f"{name}’s Abilities"
+    body_text = '\n'.join(f"- {ability}" for ability in abilities)
+    return title, body_text
 
 if __name__ == '__main__':
     main()
