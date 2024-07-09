@@ -1,48 +1,24 @@
-""" 
-Description: 
-  Creates a new PasteBin paste that contains a list of abilities 
-  for a specified Pokemon
+'''
+Library for interacting with the PasteBin API
+https://pastebin.com/doc_api
+'''
+import requests
 
-Usage:
-  python pokemon_paste.py poke_name
+PASTEBIN_API_POST_URL = 'https://pastebin.com/api/api_post.php'
+API_DEV_KEY = 'Put your API key here'
 
-Parameters:
-  poke_name = Pokemon name
-"""
-import sys
-import poke_api
-import pastebin_api
-
-def main():
-    poke_name = get_pokemon_name()
-    poke_info = poke_api.get_pokemon_info(poke_name)
-    if poke_info is not None:
-        paste_title, paste_body = get_paste_data(poke_info)
-        paste_url = pastebin_api.post_new_paste(paste_title, paste_body, '1M')
-        print(paste_url)
-
-def get_pokemon_name():
-    """Gets the name of the Pokemon specified as a command line parameter.
-    Aborts script execution if no command line parameter was provided.
-
-    Returns:
-        str: Pokemon name
-    """
-    # TODO: Function body
-    return
-
-def get_paste_data(pokemon_info):
-    """Builds the title and body text for a PasteBin paste that lists a Pokemon's abilities.
+def post_new_paste(title, body_text, expiration='N', listed=True):
+    """Posts a new paste to PasteBin
 
     Args:
-        pokemon_info (dict): Dictionary of Pokemon information
-
+        title (str): Paste title
+        body_text (str): Paste body text
+        expiration (str): Expiration date of paste (N = never, 10M = minutes, 1H, 1D, 1W, 2W, 1M, 6M, 1Y)
+        listed (bool): Whether paste is publicly listed (True) or not (False) 
+    
     Returns:
-        (str, str): Title and body text for the PasteBin paste
+        str: URL of new paste, if successful. Otherwise None.
     """    
-    # TODO: Build the paste title
-    # TODO: Build the paste body text
-    return # (title, body_text)
-
-if __name__ == '__main__':
-    main()
+    # TODO: Function body
+    # Note: This function will be written as a group 
+    return
